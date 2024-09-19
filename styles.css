@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Mona+Sans:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Mona Sans', sans-serif;
+  background-color: #1e1e2f;  /* Fondo oscuro */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  color: white;
+  position: relative; /* Necesario para el fondo de corazones */
+}
+
+.container {
+  text-align: center;
+  z-index: 2;
+}
+
+.message-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  transition: transform 0.6s ease;
+}
+
+.message-box h1 {
+  font-size: 2em;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.message-box button {
+  background-color: #ff79c6;  /* Color pastel rosa */
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-size: 1.2em;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 15px #ff79c6;
+}
+
+.message-box button:hover {
+  background-color: #bd93f9;  /* Color pastel violeta */
+  box-shadow: 0 0 15px #bd93f9;
+}
+
+.hidden-message {
+  display: none;
+  margin-top: 30px;
+  font-size: 1.5em;
+  color: #ff79c6;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 121, 198, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* Animación de los corazones */
+#hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;  /* Los corazones no interferirán con los clics */
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #ff79c6; /* Color rosa pastel para los corazones */
+  border-radius: 50%;
+  animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(100vw);
+    opacity: 0;
+  }
+}
